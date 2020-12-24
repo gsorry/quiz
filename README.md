@@ -51,12 +51,21 @@ CREATE DATABASE quiz;
 
 Clone repository:
 ```shell
-git clone repo
+git clone https://github.com/gsorry/quiz.git
+```
+or:
+```shell
+git clone git@github.com:gsorry/quiz.git
+```
+
+Build application:
+```shell
+cd quiz
+mvn clean install
 ```
 
 Run application:
 ```shell
-mvn clean install
 mvn spring-boot:run
 ```
 
