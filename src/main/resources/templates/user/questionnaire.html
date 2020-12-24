@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaire - Quiz</title>
+</head>
+<body>
+<h1>Questionnaire</h1>
+<a th:href="@{/}">Home</a>
+<fieldset>
+    <legend>Questionnaire <span th:text="${questions.number+1}"></span> of <span th:text="${questions.totalPages}"></span></legend>
+    <form th:object="${decision}" th:action="@{/user/questionnaire/{page}(page=${page})}" th:method="post">
+        <input type="hidden" name="id" th:value="${decision.id}" />
+        <div th:each="question : ${questions}">
+            <span th:text="${question.content}"></span><br />
+            <div th:each="answer : ${question.answers}">
+                <label>
+                    <span th:text="${answer.content}"></span>
+                    <input type="radio" name="answer" required="required" th:value="${answer.id}" th:checked="${decision.answer}==${answer}" />
+                </label>
+            </div>
+        </div>
+        <a th:if="!${questions.first}" th:href="@{/user/questionnaire/{page}(page=${page}-1)}">Prev</a>
+        <input type="submit" th:value="${questions.last} ? 'Finish' : 'Next'" />
+    </form>
+</fieldset>
+</body>
+</html>

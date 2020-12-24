@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Users - Quiz</title>
+</head>
+<body>
+<h1>Top Users</h1>
+<a th:href="@{/}">Home</a>
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Last Login</th>
+        <th>Score</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.username}"></td>
+        <td th:text="${#dates.format(user.lastLogin, 'dd.MM.yyyy')}"></td>
+        <td th:text="${user.score}"></td>
+    </tr>
+</table>
+</body>
+</html>

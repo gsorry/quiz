@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions - Admin - Quiz</title>
+</head>
+<body>
+<h1>Questions</h1>
+<a th:href="@{/}">Home</a>
+<a th:href="@{/admin/questions}">All Questions</a>
+<a th:href="@{/admin/questions/top_correct}">Top Correct</a>
+<a th:href="@{/admin/questions/top_incorrect}">Top Incorrect</a>
+<a th:href="@{/admin/questions/new}">New Question</a>
+<table>
+    <tr>
+        <th>Question</th>
+        <th></th>
+    </tr>
+    <tr th:each="question : ${questions}">
+        <td th:text="${question.content}"></td>
+        <td>
+            <a th:href="@{/admin/questions/edit/{id}(id=${question.id})}">Edit</a>
+            <a th:href="@{/admin/questions/delete/{id}(id=${question.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

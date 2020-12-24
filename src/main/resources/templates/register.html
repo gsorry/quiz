@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Quiz</title>
+</head>
+<body>
+<h1>Register</h1>
+<a th:href="@{/}">Home</a>
+<fieldset>
+    <legend>Register form</legend>
+    <form th:object="${user}" th:action="@{/register}" th:method="post">
+
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" th:field="*{firstName}" /><br />
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" th:field="*{lastName}" /><br />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" th:field="*{email}" /><br />
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" th:field="*{username}" /><br />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" th:field="*{password}" /><br />
+
+        <input type="submit" value="Submit" />
+    </form>
+</fieldset>
+</body>
+</html>

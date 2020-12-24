@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Question - Admin - Quiz</title>
+</head>
+<body>
+<h1>Edit Question</h1>
+<a th:href="@{/admin/questions}">Questions</a>
+<fieldset>
+    <legend>Question form</legend>
+    <form th:object="${question}" th:action="@{/admin/questions/update/{id}(id=${question.id})}" th:method="post">
+
+        <label for="content">Content:</label>
+        <input type="text" id="content" th:field="*{content}" /><br />
+
+        <input type="submit" value="Submit" />
+    </form>
+</fieldset>
+<h2>Answers</h2>
+<a th:href="@{/admin/answers/new/{id}(id=${question.id})}">New Answer</a>
+<table>
+    <tr>
+        <th>Answer</th>
+        <th>Correct</th>
+        <th></th>
+    </tr>
+    <tr th:each="answer : ${question.answers}">
+        <td th:text="${answer.content}"></td>
+        <td>
+            <span th:if="${answer.correct}">Yes</span>
+            <span th:if="not ${answer.correct}">No</span>
+        </td>
+        <td>
+            <a th:href="@{/admin/answers/edit/{id}(id=${answer.id})}">Edit</a>
+            <a th:href="@{/admin/answers/delete/{id}(id=${answer.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

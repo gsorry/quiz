@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<h1>Quiz</h1>
+<div sec:authorize="isAuthenticated()">
+    Authenticated as <span sec:authentication="name"></span>
+    <a th:href="@{/logout}">Logout</a>
+</div>
+<div sec:authorize="isAnonymous()">
+    <a th:href="@{/login}">Login</a>
+    <a th:href="@{/register}">Register</a>
+</div>
+<div sec:authorize="hasAuthority('ADMIN')">
+    <a th:href="@{/admin/users}">Users</a>
+    <a th:href="@{/admin/questions}">Questions</a>
+</div>
+<div sec:authorize="hasAuthority('USER')">
+    <a th:href="@{/user/questionnaire/0}">Questionnaire</a>
+</div>
+</body>
+</html>

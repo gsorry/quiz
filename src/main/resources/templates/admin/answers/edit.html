@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Answer - Admin - Quiz</title>
+</head>
+<body>
+<h1>Edit Answer</h1>
+<a th:href="@{/admin/questions/edit/{id}(id=${answer.question.id})}">Question</a>
+<fieldset>
+    <legend>Answer form</legend>
+    <form th:object="${answer}" th:action="@{/admin/answers/update/{id}(id=${answer.id})}" th:method="post">
+
+        <label for="content">Content:</label>
+        <input type="text" id="content" th:field="*{content}" /><br />
+
+        <label for="correct">Correct:</label>
+        <input type="checkbox" id="correct" th:field="*{correct}" /><br />
+
+        <input type="submit" value="Submit" />
+    </form>
+</fieldset>
+</body>
+</html>
