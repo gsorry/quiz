@@ -74,6 +74,8 @@ Optional run application with java -jar command:
 java -jar target/quiz-0.0.1-SNAPSHOT.jar
 ```
 
+Application is set up to recreate database every time and fill some demo data using `BootstrapData` component.
+
 ## Guides
 
 When starting the application, an admin user is created.
@@ -108,23 +110,23 @@ Questions Page:
 - Delete - Delete Question and related answers.
 
 Question Form:
-    - Questions - Back to questions page.
-    - New Answer - Create new Answer, opens Answer Form.
-    - Edit - Edit Answer, opens Answer Form.
-    - Delete - Delete Answer.
+- Questions - Back to questions page.
+- New Answer - Create new Answer, opens Answer Form.
+- Edit - Edit Answer, opens Answer Form.
+- Delete - Delete Answer.
 
 Answer Form:
-    - Question - Return to related Question.
+- Question - Return to related Question.
 
 ### User
 
-Login with credentials used in registration form.
-
-- Registruje se na kviz popunjavanjem osnovnih podataka (korisničko ime, lozinka, ime i prezime, e-mail), ukoliko je registrovan može pristupiti unošenjem korisničkog imena i lozinke.
-- Odgovara na pitanja biranjem jednog ili više ponuđenih odgovora. Ukoliko ne zna odgovor na pitanje, može ga preskočiti.
-- Učesnik može da odustane od kviza.
-- Učesniku je prikazan indikator na koje po redu odgovara pitanje (primer 2/6).
-- Na kraju kviza prikazati učesniku prikazati rang listu od top 5 učesnika kviza, ukoliko je trenutni učesnik na prvom mestu, prikazati mu poruku čestitke.
+Login with credentials used in registration form.  Also some demo users are already pre-registered:
+- `user1/user1`
+- `user2/user2`
+- `user3/user3`
+- `user4/user4`
+- `user5/user5`
+- `user6/user6`
 
 Homepage links are changed:
 - Logout - logout from application.
